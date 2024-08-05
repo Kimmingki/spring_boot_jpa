@@ -1,0 +1,25 @@
+spring:
+  # DB 설정
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+
+# Logging 설정
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.orm.jdbc.bind: trace
+    org.hibernate.type: trace
