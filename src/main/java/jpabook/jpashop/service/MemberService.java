@@ -44,7 +44,7 @@ public class MemberService {
      * 회원 전체 조회
      * @return
      */
-    public List<Member> findAll() {
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
@@ -53,7 +53,7 @@ public class MemberService {
      * @param id 회원 ID
      * @return
      */
-    public Member findOne(Long id) {
+    public Member findMember(Long id) {
         return memberRepository.findOne(id);
     }
 }
