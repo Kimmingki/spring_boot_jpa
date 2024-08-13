@@ -70,14 +70,14 @@ public class OrderAPIController {
         return orderQueryRepository.findAllByDTO_optimization();
     }
 
-    @GetMapping("/api/v6/orders")
-    public List<OrderQueryDTO> ordersV6() {
-        List<OrderFlatDTO> flats = orderQueryRepository.findAllByDTO_flat();
-        return flats.stream()
-                .collect(
-                        groupingBy(o -> new OrderQueryDTO(o.getOrderId(), o.getName(), o.getOrderDate(), o.getOrderStatus(), o.getAddress()),
-                                mapping(o -> new OrderItemQueryDTO(o.getOrderId(), o.getItemName(), o.getOrderPrice(), o.getCount()), toList()))).entrySet().stream()
-                .map(e -> new OrderQueryDTO(e.getKey().getOrderId(), e.getKey().getName(), e.getKey().getOrderDate(), e.getKey().getOrderStatus(), e.getKey().getAddress(), e.getValue()))
-                .collect(toList());
-    }
+//    @GetMapping("/api/v6/orders")
+//    public List<OrderQueryDTO> ordersV6() {
+//        List<OrderFlatDTO> flats = orderQueryRepository.findAllByDTO_flat();
+//        return flats.stream()
+//                .collect(
+//                        groupingBy(o -> new OrderQueryDTO(o.getOrderId(), o.getName(), o.getOrderDate(), o.getOrderStatus(), o.getAddress()),
+//                                mapping(o -> new OrderItemQueryDTO(o.getOrderId(), o.getItemName(), o.getOrderPrice(), o.getCount()), toList()))).entrySet().stream()
+//                .map(e -> new OrderQueryDTO(e.getKey().getOrderId(), e.getKey().getName(), e.getKey().getOrderDate(), e.getKey().getOrderStatus(), e.getKey().getAddress(), e.getValue()))
+//                .collect(toList());
+//    }
 }
